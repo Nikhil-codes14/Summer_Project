@@ -1,0 +1,6 @@
+{
+  "name": "Smart Ambalika Management System (SAMS)",
+  "description": "A professional college campus complaint management system for students across all courses and departments at Ambalika Institute of Management and Technology.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
