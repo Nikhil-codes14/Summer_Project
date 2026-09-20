@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldAlert, Lock, Mail, ArrowLeft, KeyRound } from 'lucide-react';
+import { apiFetch } from '../lib/api';
 
 interface AdminLoginModalProps {
   onLoginSuccess: (user: any, role: 'ADMIN') => void;
@@ -33,13 +34,11 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
     setError('');
     setLoading(true);
     try {
-      const res = await fetch('/api/auth/admin-login', {
+      const data = await apiFetch('/api/auth/admin-login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: adminEmail, password: adminPassword })
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Admin authentication failed');
       onLoginSuccess(data.user, 'ADMIN');
     } catch (err: any) {
       setError(err.message);

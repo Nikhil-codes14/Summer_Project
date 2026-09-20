@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldAlert, User, Lock, Mail, BookOpen, Building, Hash, Calendar, ArrowLeft } from 'lucide-react';
+import { apiFetch } from '../lib/api';
 
 interface LoginModalProps {
   initialTab?: 'student-login' | 'student-register';
@@ -33,13 +34,11 @@ export function LoginModal({ initialTab = 'student-login', onLoginSuccess, onBac
     setError('');
     setLoading(true);
     try {
-      const res = await fetch('/api/auth/student-login', {
+      const data = await apiFetch('/api/auth/student-login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: loginEmail, password: loginPassword })
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Login failed');
       onLoginSuccess(data.user, 'STUDENT');
     } catch (err: any) {
       setError(err.message);
@@ -53,7 +52,7 @@ export function LoginModal({ initialTab = 'student-login', onLoginSuccess, onBac
     setError('');
     setLoading(true);
     try {
-      const res = await fetch('/api/auth/register', {
+      const data = await apiFetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -67,8 +66,6 @@ export function LoginModal({ initialTab = 'student-login', onLoginSuccess, onBac
           semester: regSemester
         })
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Registration failed');
       onLoginSuccess(data.user, 'STUDENT');
     } catch (err: any) {
       setError(err.message);

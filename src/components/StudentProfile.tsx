@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { User } from '../types';
+import { apiFetch } from '../lib/api';
 import { User as UserIcon, Mail, BookOpen, Building, Hash, Calendar, CheckCircle2, ArrowLeft } from 'lucide-react';
 
 interface StudentProfileProps {
@@ -26,13 +27,11 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
     setSuccess(false);
 
     try {
-      const res = await fetch(`/api/students/${user.id}`, {
+      const data = await apiFetch(`/api/students/${user.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fullName, course, department, year, semester })
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to update profile');
       onUpdateUser(data.user);
       setSuccess(true);
     } catch (err: any) {

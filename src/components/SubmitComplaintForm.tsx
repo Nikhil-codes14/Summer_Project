@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { User, COMPLAINT_CATEGORIES, CAMPUS_LOCATIONS } from '../types';
+import { apiFetch } from '../lib/api';
 import { Send, MapPin, AlertTriangle, Image as ImageIcon, CheckCircle2, ArrowLeft } from 'lucide-react';
 
 interface SubmitComplaintFormProps {
@@ -31,7 +32,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
 
     setSubmitting(true);
     try {
-      const res = await fetch('/api/complaints', {
+      const data = await apiFetch('/api/complaints', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -47,9 +48,6 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
           image
         })
       });
-
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to submit complaint');
 
       setSuccessId(data.complaint.id);
       onComplaintSubmitted();

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { User, Complaint } from '../types';
+import { apiFetch } from '../lib/api';
 import { Search, Filter, MapPin, Calendar, CheckCircle2, Clock, Activity, AlertTriangle, Star, MessageSquare, X, ArrowLeft } from 'lucide-react';
 
 interface MyComplaintsProps {
@@ -37,7 +38,7 @@ export function MyComplaints({ user, complaints, onRefresh, onNavigate }: MyComp
     e.preventDefault();
     setFeedbackError('');
     try {
-      const res = await fetch('/api/feedback', {
+      await apiFetch('/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -48,8 +49,6 @@ export function MyComplaints({ user, complaints, onRefresh, onNavigate }: MyComp
           comment
         })
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to submit feedback');
       setFeedbackSubmitted(true);
       onRefresh();
     } catch (err: any) {

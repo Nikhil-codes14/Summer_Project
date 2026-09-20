@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { User, Complaint, NotificationItem } from './types';
+import { apiFetch } from './lib/api';
 import { Navbar } from './components/Navbar';
 import { LandingPage } from './components/LandingPage';
 import { LoginModal } from './components/LoginModal';
@@ -24,13 +25,11 @@ export default function App() {
   // Fetch complaints & notifications
   const fetchData = async () => {
     try {
-      const compRes = await fetch('/api/complaints');
-      const compData = await compRes.json();
+      const compData = await apiFetch('/api/complaints');
       if (Array.isArray(compData)) setComplaints(compData);
 
       if (user) {
-        const notifRes = await fetch(`/api/notifications?userId=${user.id}`);
-        const notifData = await notifRes.json();
+        const notifData = await apiFetch(`/api/notifications?userId=${user.id}`);
         if (Array.isArray(notifData)) setNotifications(notifData);
       }
     } catch (err) {
@@ -58,7 +57,7 @@ export default function App() {
 
   const handleMarkNotificationRead = async (id: string) => {
     try {
-      await fetch(`/api/notifications/${id}/read`, { method: 'PUT' });
+      await apiFetch(`/api/notifications/${id}/read`, { method: 'PUT' });
       setNotifications(prev => prev.map(n => n.id === id ? { ...n, read: true } : n));
     } catch (err) {
       console.error('Error marking notification read', err);

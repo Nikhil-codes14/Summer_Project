@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Resolver, DEPARTMENTS_LIST } from '../types';
+import { apiFetch } from '../lib/api';
 import { Wrench, UserPlus, Phone, Building, ShieldCheck, Trash2, ArrowLeft, CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 interface AdminResolversViewProps {
@@ -21,8 +22,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
 
   const fetchResolvers = async () => {
     try {
-      const res = await fetch('/api/resolvers');
-      const data = await res.json();
+      const data = await apiFetch('/api/resolvers');
       if (Array.isArray(data)) setResolvers(data);
     } catch (err) {
       console.error('Error fetching resolvers', err);
@@ -39,7 +39,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await fetch('/api/resolvers', {
+      await apiFetch('/api/resolvers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,8 +54,6 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
           isAdmin: true
         })
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to add technician');
 
       setName('');
       setRole('');
@@ -72,14 +70,12 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
   const handleDeleteResolver = async (id: string) => {
     if (!confirm('Are you sure you want to remove this technician from the staff directory?')) return;
     try {
-      const res = await fetch(`/api/resolvers/${id}?isAdmin=true`, {
+      await apiFetch(`/api/resolvers/${id}?isAdmin=true`, {
         method: 'DELETE',
         headers: {
           'x-admin-auth': 'true'
         }
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to delete');
       fetchResolvers();
     } catch (err: any) {
       alert(err.message);

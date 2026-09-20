@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Complaint, DEPARTMENTS_LIST, COMPLAINT_CATEGORIES } from '../types';
+import { apiFetch } from '../lib/api';
 import { Search, Filter, MapPin, CheckCircle2, XCircle, Clock, Activity, MessageSquare, Building, X, ArrowLeft } from 'lucide-react';
 
 interface AdminComplaintsTableProps {
@@ -27,8 +28,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
   const [updating, setUpdating] = useState(false);
 
   React.useEffect(() => {
-    fetch('/api/resolvers')
-      .then(res => res.json())
+    apiFetch('/api/resolvers')
       .then(data => {
         if (Array.isArray(data)) setResolvers(data);
       })
@@ -68,7 +68,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
     setUpdating(true);
 
     try {
-      const res = await fetch(`/api/complaints/${activeComplaint.id}`, {
+      await apiFetch(`/api/complaints/${activeComplaint.id}`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',
@@ -84,8 +84,6 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
           isAdmin: true
         })
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to update complaint');
 
       setActiveComplaint(null);
       onRefresh();
