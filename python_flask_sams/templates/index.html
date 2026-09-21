@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMS - Smart Ambalika Management System</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">🏫</div>
+        <div class="brand-text">
+          <h1>SAMS</h1>
+          <p>Smart Ambalika Management System</p>
+        </div>
+      </div>
+      <nav class="nav-actions" id="navActions">
+        <!-- Injected via JavaScript based on Auth state -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="main-container" id="appRoot">
+    <!-- View 1: Landing Page -->
+    <section id="viewLanding" class="view active">
+      <div class="hero">
+        <div class="badge">Ambalika Institute of Management & Technology</div>
+        <h2>Campus Issue Resolution & Executive Governance</h2>
+        <p>A digitized grievance reporting portal for students and real-time oversight for the College Dean, Additional Director, and Maintenance Teams.</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" onclick="showView('viewStudentLogin')">Student Portal</button>
+          <button class="btn btn-dark" onclick="showView('viewAdminLogin')">Executive & Admin Portal</button>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Quick Grievance Reporting</h3>
+          <p>Report classroom, lab, hostel, or mess issues in under 30 seconds with automated priority escalation.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏛️</div>
+          <h3>Executive Oversight</h3>
+          <p>College Dean & Additional Director portals for high-priority acknowledgments and maintenance directives.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔧</div>
+          <h3>Direct Technician Dispatch</h3>
+          <p>Instant assignment of certified campus electricians, plumbers, carpenters, and IT resolvers.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 2: Student Login & Registration -->
+    <section id="viewStudentLogin" class="view">
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <button class="tab-btn active" id="tabStudentLoginBtn" onclick="toggleStudentAuthTab('login')">Student Sign In</button>
+          <button class="tab-btn" id="tabStudentRegBtn" onclick="toggleStudentAuthTab('register')">New Registration</button>
+        </div>
+
+        <!-- Student Login Form -->
+        <form id="formStudentLogin" onsubmit="handleStudentLogin(event)">
+          <div class="form-group">
+            <label>Student College Email</label>
+            <input type="email" id="loginEmail" required placeholder="rahul.sharma@ambalika.ac.in">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="loginPassword" required placeholder="••••••••">
+          </div>
+          <div class="demo-box">
+            Demo Login: <code>rahul.sharma@ambalika.ac.in</code> / <code>password123</code>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign In to Student Portal</button>
+          <button type="button" class="btn btn-link btn-block" onclick="showView('viewLanding')">← Back to Home</button>
+        </form>
+
+        <!-- Student Registration Form -->
+        <form id="formStudentReg" class="hidden" onsubmit="handleStudentRegister(event)">
+          <div class="form-group">
+            <label>Full Student Name</label>
+            <input type="text" id="regFullName" required placeholder="Rahul Sharma">
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Student Roll / ID</label>
+              <input type="text" id="regStudentId" required placeholder="SAMS2026001">
+            </div>
+            <div class="form-group">
+              <label>College Email</label>
+              <input type="email" id="regEmail" required placeholder="rahul.sharma@ambalika.ac.in">
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Course</label>
+              <select id="regCourse" required>
+                <option value="BCA">BCA</option>
+                <option value="B.Tech (CSE)">B.Tech (CSE)</option>
+                <option value="B.Tech (AI & ML)">B.Tech (AI & ML)</option>
+                <option value="B.Tech (Civil)">B.Tech (Civil)</option>
+                <option value="Diploma">Diploma</option>
+                <option value="MBA">MBA</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Department</label>
+              <select id="regDepartment" required>
+                <option value="Computer Applications">Computer Applications</option>
+                <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Management Studies">Management Studies</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Year</label>
+              <select id="regYear" required>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Semester</label>
+              <select id="regSemester" required>
+                <option value="1st Semester">1st Semester</option>
+                <option value="2nd Semester">2nd Semester</option>
+                <option value="3rd Semester">3rd Semester</option>
+                <option value="4th Semester">4th Semester</option>
+                <option value="5th Semester">5th Semester</option>
+                <option value="6th Semester">6th Semester</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Create Password</label>
+            <input type="password" id="regPassword" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Complete Registration</button>
+          <button type="button" class="btn btn-link btn-block" onclick="showView('viewLanding')">← Back to Home</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- View 3: Executive & Admin Login -->
+    <section id="viewAdminLogin" class="view">
+      <div class="auth-card dark-card">
+        <div class="card-header text-center">
+          <div class="shield-icon">🔐</div>
+          <h2 id="adminPortalTitle">🏛️ College Dean Login</h2>
+          <p id="adminPortalSub">Academic & Executive Council Portal</p>
+        </div>
+
+        <div class="role-selector">
+          <label>Select Executive / Administrative Role:</label>
+          <div class="role-buttons">
+            <button type="button" class="role-btn active" onclick="selectAdminRole('dean')">🏛️ Dean</button>
+            <button type="button" class="role-btn" onclick="selectAdminRole('director')">👔 Director</button>
+            <button type="button" class="role-btn" onclick="selectAdminRole('admin')">⚙️ HOD / Admin</button>
+          </div>
+        </div>
+
+        <form id="formAdminLogin" onsubmit="handleAdminLogin(event)">
+          <div class="form-group">
+            <label>Admin Email</label>
+            <input type="email" id="adminEmail" required value="dean@ambalika.ac.in">
+          </div>
+          <div class="form-group">
+            <label>Admin Password</label>
+            <input type="password" id="adminPassword" required value="dean123">
+          </div>
+          <button type="submit" id="adminSubmitBtn" class="btn btn-danger btn-block">🏛️ Login as College Dean</button>
+          <button type="button" class="btn btn-link btn-block" onclick="showView('viewLanding')">← Back to Home</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- View 4: Student Dashboard -->
+    <section id="viewStudentDashboard" class="view">
+      <div class="dashboard-header">
+        <div>
+          <h2>Student Grievance Dashboard</h2>
+          <p id="studentWelcomeText">Logged in as Student</p>
+        </div>
+        <button class="btn btn-primary" onclick="showModal('modalNewComplaint')">+ Submit New Grievance</button>
+      </div>
+
+      <div class="complaints-list" id="studentComplaintsContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- View 5: Executive & Admin Dashboard -->
+    <section id="viewAdminDashboard" class="view">
+      <div class="dashboard-header">
+        <div>
+          <h2 id="adminDashboardHeading">Executive Command Center</h2>
+          <p id="adminWelcomeText">Logged in as Administrator</p>
+        </div>
+        <div class="header-btns">
+          <button class="btn btn-secondary" onclick="showModal('modalResolvers')">🔧 Staff & Technicians</button>
+          <button class="btn btn-outline" onclick="loadComplaints()">🔄 Refresh</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Student</th>
+              <th>Category / Title</th>
+              <th>Location</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Assigned Technician</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminComplaintsTableBody">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal: Submit Complaint -->
+  <div id="modalNewComplaint" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Submit Campus Problem / Grievance</h3>
+        <button class="close-btn" onclick="hideModal('modalNewComplaint')">✕</button>
+      </div>
+      <form id="formNewComplaint" onsubmit="handleComplaintSubmit(event)">
+        <div class="form-group">
+          <label>Problem Category</label>
+          <select id="cmpCategory" required>
+            <option value="Fan / Light Failure">Fan / Light Failure</option>
+            <option value="Water Leakage">Water Leakage</option>
+            <option value="Furniture Problem">Furniture Problem</option>
+            <option value="Projector / Smart Board Issue">Projector / Smart Board Issue</option>
+            <option value="Cleanliness & Washroom Hygiene">Cleanliness & Washroom Hygiene</option>
+            <option value="Wi-Fi / Internet Problem">Wi-Fi / Internet Problem</option>
+            <option value="AC & Cooling Failure">AC & Cooling Failure</option>
+          </select>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Location / Building</label>
+            <select id="cmpLocation" required>
+              <option value="BCA / IT Building">BCA / IT Building</option>
+              <option value="B.Tech Building (All Sections)">B.Tech Building (All Sections)</option>
+              <option value="Main Auditorium">Main Auditorium</option>
+              <option value="Central Library">Central Library</option>
+              <option value="Boys Hostel Block A">Boys Hostel Block A</option>
+              <option value="Girls Hostel Block B">Girls Hostel Block B</option>
+              <option value="Mess Area (Hostellers)">Mess Area (Hostellers)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Specific Room / Floor</label>
+            <input type="text" id="cmpSpecificLocation" placeholder="e.g. Room 204 (2nd Floor)">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Issue Description</label>
+          <textarea id="cmpDescription" required rows="3" placeholder="Provide details about the issue..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Urgency Level</label>
+          <select id="cmpPriority" required>
+            <option value="Low">Low (Routine Maintenance)</option>
+            <option value="Medium" selected>Medium (Classroom Impact)</option>
+            <option value="High">High (Immediate Action)</option>
+            <option value="Emergency">Emergency (Safety Hazard)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Grievance to SAMS</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Resolvers & Technicians Directory -->
+  <div id="modalResolvers" class="modal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h3>Campus Technicians & Problem Resolvers</h3>
+        <button class="close-btn" onclick="hideModal('modalResolvers')">✕</button>
+      </div>
+      
+      <!-- Add Resolver Form -->
+      <form id="formAddResolver" class="inline-form" onsubmit="handleAddResolver(event)">
+        <input type="text" id="resName" required placeholder="Technician Name">
+        <input type="text" id="resRole" required placeholder="Role (e.g. Electrician)">
+        <input type="text" id="resPhone" required placeholder="Phone Number">
+        <select id="resDept" required>
+          <option value="Electrical Department">Electrical</option>
+          <option value="Maintenance Department">Maintenance</option>
+          <option value="Civil/Maintenance">Civil/Plumbing</option>
+          <option value="IT Department">IT / Network</option>
+          <option value="Cleaning Department">Sanitation</option>
+        </select>
+        <button type="submit" class="btn btn-primary">+ Add Staff</button>
+      </form>
+
+      <div class="resolvers-list" id="resolversContainer">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Update Complaint Status (Admin) -->
+  <div id="modalUpdateComplaint" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Update Complaint & Assign Technician</h3>
+        <button class="close-btn" onclick="hideModal('modalUpdateComplaint')">✕</button>
+      </div>
+      <form id="formUpdateComplaint" onsubmit="handleComplaintUpdateSubmit(event)">
+        <input type="hidden" id="editComplaintId">
+        <div class="form-group">
+          <label>Update Status</label>
+          <select id="editStatus" required>
+            <option value="Submitted">Submitted</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Assigned">Assigned to Technician</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Assign Problem Resolver / Technician</label>
+          <select id="editResolver">
+            <option value="">-- Select Technician --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Executive / HOD Note</label>
+          <textarea id="editAdminResponse" rows="2" placeholder="Instructions or resolution notes..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger btn-block">Save Status & Notify Student</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
