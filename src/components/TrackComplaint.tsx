@@ -5,12 +5,15 @@ import { Search, ShieldAlert, CheckCircle2, Clock, Activity, AlertTriangle, Arro
 interface TrackComplaintProps {
   complaints: Complaint[];
   onNavigate: (view: string) => void;
+  userRole?: 'STUDENT' | 'ADMIN' | null;
 }
 
-export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) {
+export function TrackComplaint({ complaints, onNavigate, userRole }: TrackComplaintProps) {
   const [searchId, setSearchId] = useState('');
   const [tracked, setTracked] = useState<Complaint | null>(null);
   const [error, setError] = useState('');
+
+  const backDest = userRole === 'ADMIN' ? 'admin-dashboard' : userRole === 'STUDENT' ? 'dashboard' : 'landing';
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,10 +31,10 @@ export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) 
     <div className="max-w-3xl mx-auto px-4 py-8 space-y-6">
       <div className="flex justify-between items-center">
         <button
-          onClick={() => onNavigate('dashboard')}
+          onClick={() => onNavigate(backDest)}
           className="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1"
         >
-          <ArrowLeft className="w-3.5 h-3.5" /> Back to Dashboard
+          <ArrowLeft className="w-3.5 h-3.5" /> Back to {userRole ? 'Dashboard' : 'Home'}
         </button>
         <span className="text-xs bg-blue-100 text-blue-800 font-semibold px-3 py-1 rounded-full">
           SAMS Complaint Tracker

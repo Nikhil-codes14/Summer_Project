@@ -104,7 +104,12 @@ export function Navbar({
               </>
             )}
 
-
+            <button
+              onClick={() => onNavigate('documentation')}
+              className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'documentation' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
+            >
+              Documentation
+            </button>
           </div>
 
           {/* Right Action Area */}
@@ -215,8 +220,11 @@ export function Navbar({
             <>
               <button onClick={() => { onNavigate('admin-dashboard'); setMobileMenuOpen(false); }} className="block w-full text-left py-2 px-3 rounded hover:bg-slate-700 text-sm">Admin Dashboard</button>
               <button onClick={() => { onNavigate('admin-complaints'); setMobileMenuOpen(false); }} className="block w-full text-left py-2 px-3 rounded hover:bg-slate-700 text-sm">Manage Complaints</button>
+              <button onClick={() => { onNavigate('admin-resolvers'); setMobileMenuOpen(false); }} className="block w-full text-left py-2 px-3 rounded hover:bg-slate-700 text-sm">Technicians Staff</button>
             </>
           )}
+
+          <button onClick={() => { onNavigate('documentation'); setMobileMenuOpen(false); }} className="block w-full text-left py-2 px-3 rounded hover:bg-slate-700 text-sm">Documentation</button>
 
           {user && (
             <button onClick={() => { onLogout(); setMobileMenuOpen(false); }} className="block w-full text-left py-2 px-3 rounded hover:bg-red-900/30 text-red-400 text-sm font-semibold">Logout ({user.fullName || user.name})</button>

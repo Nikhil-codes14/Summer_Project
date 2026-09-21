@@ -13,6 +13,7 @@ import { StudentProfile } from './components/StudentProfile';
 import { AdminDashboard } from './components/AdminDashboard';
 import { AdminComplaintsTable } from './components/AdminComplaintsTable';
 import { AdminResolversView } from './components/AdminResolversView';
+import { DocumentationView } from './components/DocumentationView';
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -110,12 +111,22 @@ export default function App() {
               <MyComplaints user={user} complaints={complaints} onRefresh={fetchData} onNavigate={view => setCurrentView(view)} />
             )}
             {currentView === 'track' && (
-              <TrackComplaint complaints={complaints} onNavigate={view => setCurrentView(view)} />
+              <TrackComplaint complaints={complaints} onNavigate={view => setCurrentView(view)} userRole={role} />
             )}
             {currentView === 'profile' && (
               <StudentProfile user={user} onUpdateUser={updated => setUser(updated)} onNavigate={view => setCurrentView(view)} />
             )}
           </>
+        )}
+
+        {/* Public / Guest Track Status */}
+        {!user && currentView === 'track' && (
+          <TrackComplaint complaints={complaints} onNavigate={view => setCurrentView(view)} userRole={null} />
+        )}
+
+        {/* Universal Documentation View */}
+        {currentView === 'documentation' && (
+          <DocumentationView onNavigate={view => setCurrentView(view)} userRole={role} />
         )}
 
         {role === 'ADMIN' && user && (
