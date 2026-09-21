@@ -29,11 +29,11 @@ export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) 
       <div className="flex justify-between items-center">
         <button
           onClick={() => onNavigate('dashboard')}
-          className="text-xs text-red-600 font-semibold hover:underline flex items-center gap-1"
+          className="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Dashboard
         </button>
-        <span className="text-xs bg-red-100 text-red-800 font-semibold px-3 py-1 rounded-full">
+        <span className="text-xs bg-blue-100 text-blue-800 font-semibold px-3 py-1 rounded-full">
           SAMS Complaint Tracker
         </span>
       </div>
@@ -53,12 +53,12 @@ export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) 
               placeholder="e.g. SAMS-COMP-1001"
               value={searchId}
               onChange={e => setSearchId(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-2.5 text-sm font-mono font-bold focus:ring-2 focus:ring-red-500 focus:outline-none"
+              className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-2.5 text-sm font-mono font-bold focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
           </div>
           <button
             type="submit"
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2.5 rounded-xl text-sm shadow transition"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl text-sm shadow transition"
           >
             Track Status
           </button>
@@ -74,7 +74,7 @@ export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) 
           <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-6">
             <div className="flex justify-between items-center border-b border-slate-200 pb-4">
               <div>
-                <span className="text-xs uppercase tracking-widest text-red-600 font-bold">Complaint Record</span>
+                <span className="text-xs uppercase tracking-widest text-blue-600 font-bold">Complaint Record</span>
                 <h3 className="text-xl font-bold font-mono text-slate-900">{tracked.id}</h3>
               </div>
               <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
@@ -103,7 +103,7 @@ export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) 
               </div>
               <div>
                 <span className="text-slate-400 block uppercase font-bold">Assigned Department</span>
-                <span className="font-semibold text-red-700">{tracked.assignedDepartment}</span>
+                <span className="font-semibold text-blue-700">{tracked.assignedDepartment}</span>
               </div>
               <div>
                 <span className="text-slate-400 block uppercase font-bold">Submission Date</span>
@@ -124,7 +124,7 @@ export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) 
 
             <div className="space-y-1">
               <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Admin Response</h4>
-              <p className="text-sm text-slate-700 bg-red-50 p-3 rounded-lg border border-red-200">
+              <p className="text-sm text-slate-700 bg-blue-50 p-3 rounded-lg border border-blue-200">
                 {tracked.adminResponse || 'Pending administrative review.'}
               </p>
             </div>
@@ -133,12 +133,12 @@ export function TrackComplaint({ complaints, onNavigate }: TrackComplaintProps) 
             <div className="space-y-2 pt-2">
               <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Visual Progress Timeline</h4>
               <div className="flex items-center justify-between bg-white p-4 rounded-xl border border-slate-200 text-xs font-medium">
-                <div className="flex flex-col items-center text-red-600 font-bold">
-                  <div className="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center mb-1 text-[10px]">✓</div>
+                <div className="flex flex-col items-center text-blue-600 font-bold">
+                  <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center mb-1 text-[10px]">✓</div>
                   Submitted
                 </div>
-                <div className={`flex flex-col items-center ${['Pending', 'In Progress', 'Resolved'].includes(tracked.status) ? 'text-red-600 font-bold' : 'text-slate-400'}`}>
-                  <div className={`w-6 h-6 rounded-full ${['Pending', 'In Progress', 'Resolved'].includes(tracked.status) ? 'bg-red-600 text-white' : 'bg-slate-200 text-slate-600'} flex items-center justify-center mb-1 text-[10px]`}>2</div>
+                <div className={`flex flex-col items-center ${['Pending', 'In Progress', 'Resolved'].includes(tracked.status) ? 'text-blue-600 font-bold' : 'text-slate-400'}`}>
+                  <div className={`w-6 h-6 rounded-full ${['Pending', 'In Progress', 'Resolved'].includes(tracked.status) ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-600'} flex items-center justify-center mb-1 text-[10px]`}>2</div>
                   Pending
                 </div>
                 <div className={`flex flex-col items-center ${['In Progress', 'Resolved'].includes(tracked.status) ? 'text-indigo-600 font-bold' : 'text-slate-400'}`}>

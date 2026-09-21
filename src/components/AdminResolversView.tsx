@@ -88,12 +88,12 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
         <div>
           <button
             onClick={() => onNavigate('admin-dashboard')}
-            className="text-xs text-red-600 font-semibold hover:underline flex items-center gap-1 mb-2"
+            className="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1 mb-2"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Admin Dashboard
           </button>
           <h1 className="text-2xl font-extrabold text-slate-900 flex items-center gap-2">
-            <Wrench className="w-6 h-6 text-red-600" /> Campus Technicians & Problem Resolvers Staff
+            <Wrench className="w-6 h-6 text-blue-600" /> Campus Technicians & Problem Resolvers Staff
           </h1>
           <p className="text-xs text-slate-500">
             View specialized technicians, plumbers, electricians, carpenters, and IT experts assigned to resolve campus issues.
@@ -102,11 +102,11 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setShowAddModal(true)}
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow transition"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow transition"
           >
             <UserPlus className="w-4 h-4" /> Add New Technician
           </button>
-          <span className="text-xs bg-slate-900 text-white font-semibold px-3 py-1.5 rounded-full">
+          <span className="text-xs bg-blue-900 text-white font-semibold px-3 py-1.5 rounded-full">
             Total Staff: {resolvers.length}
           </span>
         </div>
@@ -123,11 +123,11 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {resolvers.map(res => (
             <div key={res.id} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition space-y-4 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-red-600"></div>
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-blue-600"></div>
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="font-extrabold text-slate-900 text-lg">{res.name}</h3>
-                  <p className="text-xs text-red-600 font-semibold mt-0.5">{res.role}</p>
+                  <p className="text-xs text-blue-600 font-semibold mt-0.5">{res.role}</p>
                 </div>
                 <span className={`inline-flex px-2.5 py-1 rounded-full text-[10px] font-bold ${
                   res.status === 'Available' ? 'bg-emerald-100 text-emerald-800' :
@@ -168,9 +168,9 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
       {showAddModal && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex justify-center items-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden">
-            <div className="bg-gradient-to-r from-slate-900 to-red-950 text-white p-6 flex justify-between items-center">
+            <div className="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 flex justify-between items-center">
               <div>
-                <span className="text-xs uppercase tracking-widest text-red-400 font-bold">Staff Directory</span>
+                <span className="text-xs uppercase tracking-widest text-blue-400 font-bold">Staff Directory</span>
                 <h3 className="text-xl font-extrabold mt-1">Add Problem Resolver / Technician</h3>
               </div>
               <button onClick={() => setShowAddModal(false)} className="text-slate-300 hover:text-white p-2">
@@ -187,7 +187,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
                   placeholder="e.g. Ramesh Kumar"
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 />
               </div>
 
@@ -199,7 +199,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
                   placeholder="e.g. Plumber & Pipe Specialist"
                   value={role}
                   onChange={e => setRole(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 />
               </div>
 
@@ -211,7 +211,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
                   placeholder="e.g. +91 98765 43210"
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 />
               </div>
 
@@ -220,7 +220,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
                 <select
                   value={department}
                   onChange={e => setDepartment(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 >
                   {DEPARTMENTS_LIST.map(d => (
                     <option key={d} value={d}>{d}</option>
@@ -233,7 +233,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
                 <select
                   value={status}
                   onChange={e => setStatus(e.target.value as any)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 >
                   <option value="Available">Available</option>
                   <option value="On Task">On Task</option>
@@ -252,7 +252,7 @@ export function AdminResolversView({ onNavigate }: AdminResolversViewProps) {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold shadow transition"
+                  className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow transition"
                 >
                   {submitting ? 'Adding...' : 'Add Technician'}
                 </button>

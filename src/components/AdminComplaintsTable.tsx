@@ -100,14 +100,14 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
         <div>
           <button
             onClick={() => onNavigate('admin-dashboard')}
-            className="text-xs text-red-600 font-semibold hover:underline flex items-center gap-1 mb-2"
+            className="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1 mb-2"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Admin Dashboard
           </button>
           <h1 className="text-2xl font-extrabold text-slate-900">Manage Campus Complaints</h1>
           <p className="text-xs text-slate-500">Assign responsible departments, update statuses, and add administrative responses.</p>
         </div>
-        <span className="text-xs bg-slate-900 text-white font-semibold px-3 py-1 rounded-full">
+        <span className="text-xs bg-blue-900 text-white font-semibold px-3 py-1 rounded-full">
           Total Records: {filtered.length}
         </span>
       </div>
@@ -121,7 +121,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
             placeholder="Search student, ID, location..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-4 py-2.5 text-xs focus:ring-2 focus:ring-slate-900 focus:outline-none"
+            className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-4 py-2.5 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none"
           />
         </div>
 
@@ -129,7 +129,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
           <select
             value={statusFilter}
             onChange={e => setStatusFilter(e.target.value)}
-            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
           >
             <option value="ALL">All Statuses</option>
             <option value="Submitted">Submitted</option>
@@ -144,7 +144,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
           <select
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
-            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
           >
             <option value="ALL">All Categories</option>
             {COMPLAINT_CATEGORIES.map(cat => (
@@ -157,7 +157,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
           <select
             value={priorityFilter}
             onChange={e => setPriorityFilter(e.target.value)}
-            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
           >
             <option value="ALL">All Priorities</option>
             <option value="Low">Low</option>
@@ -171,7 +171,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
           <select
             value={deptFilter}
             onChange={e => setDeptFilter(e.target.value)}
-            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
           >
             <option value="ALL">All Departments</option>
             {DEPARTMENTS_LIST.map(d => (
@@ -205,7 +205,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
               <tbody className="divide-y divide-slate-200">
                 {filtered.map(c => (
                   <tr key={c.id} className="hover:bg-slate-50 transition">
-                    <td className="px-4 py-3 font-mono font-bold text-red-600">{c.id}</td>
+                    <td className="px-4 py-3 font-mono font-bold text-blue-600">{c.id}</td>
                     <td className="px-4 py-3">
                       <div className="font-semibold text-slate-900">{c.studentName}</div>
                       <div className="text-xs text-slate-400 font-mono">{c.studentRoll}</div>
@@ -214,7 +214,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                       <div className="font-medium text-slate-800 flex items-center gap-1.5 flex-wrap">
                         {c.category}
                         {c.reportCount && c.reportCount > 1 && (
-                          <span className="inline-flex items-center gap-0.5 bg-red-100 text-red-700 font-bold px-1.5 py-0.5 rounded text-[10px]" title={`${c.reportCount} students reported this issue`}>
+                          <span className="inline-flex items-center gap-0.5 bg-blue-100 text-blue-700 font-bold px-1.5 py-0.5 rounded text-[10px]" title={`${c.reportCount} students reported this issue`}>
                             🔥 {c.reportCount} Reports
                           </span>
                         )}
@@ -227,7 +227,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                       <span className={`inline-flex px-2 py-0.5 rounded text-xs font-semibold ${
                         c.priority === 'Emergency' ? 'bg-red-100 text-red-800' :
                         c.priority === 'High' ? 'bg-amber-100 text-amber-800' :
-                        c.priority === 'Medium' ? 'bg-red-100 text-red-800' :
+                        c.priority === 'Medium' ? 'bg-blue-100 text-blue-800' :
                         'bg-slate-100 text-slate-700'
                       }`}>
                         {c.priority}
@@ -250,7 +250,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                     <td className="px-4 py-3 text-right">
                       <button
                         onClick={() => handleOpenModal(c)}
-                        className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition"
+                        className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition"
                       >
                         Manage
                       </button>
@@ -267,9 +267,9 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
       {activeComplaint && (
         <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex justify-center items-center p-4 z-50 overflow-y-auto">
           <div className="bg-white rounded-2xl shadow-2xl max-w-xl w-full overflow-hidden my-8">
-            <div className="bg-gradient-to-r from-slate-900 to-red-950 text-white p-6 flex justify-between items-center">
+            <div className="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 flex justify-between items-center">
               <div>
-                <span className="text-xs uppercase tracking-widest text-red-400 font-bold">Admin Panel</span>
+                <span className="text-xs uppercase tracking-widest text-blue-400 font-bold">Admin Panel</span>
                 <h3 className="text-xl font-extrabold font-mono mt-1">Manage: {activeComplaint.id}</h3>
               </div>
               <button onClick={() => setActiveComplaint(null)} className="text-slate-300 hover:text-white p-2">
@@ -282,7 +282,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                 <div><strong>Student:</strong> {activeComplaint.studentName} ({activeComplaint.studentRoll})</div>
                 <div><strong>Category & Location:</strong> {activeComplaint.category} at {activeComplaint.location} ({activeComplaint.specificLocation})</div>
                 <div><strong>Description:</strong> {activeComplaint.description}</div>
-                <div><strong>Priority:</strong> <span className="font-bold text-red-600">{activeComplaint.priority}</span></div>
+                <div><strong>Priority:</strong> <span className="font-bold text-blue-600">{activeComplaint.priority}</span></div>
               </div>
 
               <div>
@@ -290,7 +290,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                 <select
                   value={newStatus}
                   onChange={e => setNewStatus(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 >
                   <option value="Submitted">Submitted</option>
                   <option value="Pending">Pending</option>
@@ -305,7 +305,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                 <select
                   value={newDept}
                   onChange={e => setNewDept(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 >
                   {DEPARTMENTS_LIST.map(d => (
                     <option key={d} value={d}>{d}</option>
@@ -318,7 +318,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                 <select
                   value={assignedResolver}
                   onChange={e => setAssignedResolver(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 >
                   <option value="">-- Select Resolver / Technician (Plumber, Electrician, Carpenter, IT) --</option>
                   {resolvers.map(r => (
@@ -329,8 +329,8 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                 </select>
               </div>
 
-              <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-2">
-                <label className="block text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+              <div className="bg-blue-50 p-4 rounded-xl border border-blue-200 space-y-2">
+                <label className="block text-xs font-bold text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
                   🏛️ College Dean / Additional Director Executive Acknowledgment
                 </label>
                 <textarea
@@ -338,9 +338,9 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                   placeholder="Enter executive acknowledgment or priority directive..."
                   value={executiveNote}
                   onChange={e => setExecutiveNote(e.target.value)}
-                  className="w-full bg-white border border-amber-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none"
+                  className="w-full bg-white border border-blue-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 ></textarea>
-                <p className="text-[10px] text-amber-700">Official remarks from the Dean or Additional Director office will be highlighted on the complaint.</p>
+                <p className="text-[10px] text-blue-700">Official remarks from the Dean or Additional Director office will be highlighted on the complaint.</p>
               </div>
 
               <div>
@@ -351,7 +351,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                   placeholder="Enter notes for student (e.g. Electrician team scheduled for 3 PM)..."
                   value={adminResponse}
                   onChange={e => setAdminResponse(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-slate-900 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -373,7 +373,7 @@ export function AdminComplaintsTable({ complaints, onRefresh, onNavigate }: Admi
                 <button
                   type="submit"
                   disabled={updating}
-                  className="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold shadow transition"
+                  className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow transition"
                 >
                   {updating ? 'Updating...' : 'Save & Notify Student'}
                 </button>

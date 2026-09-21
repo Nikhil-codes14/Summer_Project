@@ -40,9 +40,9 @@ export function AdminDashboard({ complaints, onNavigate }: AdminDashboardProps) 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Admin Header */}
-      <div className="bg-gradient-to-r from-slate-900 to-red-950 rounded-2xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div className="bg-gradient-to-r from-slate-900 to-blue-950 rounded-2xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 text-xs px-3 py-1 rounded-full font-semibold border border-red-400/30">
+          <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 text-xs px-3 py-1 rounded-full font-semibold border border-blue-400/30">
             Administrator Portal • SAMS Control Center
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold">Admin Overview & Analytics</h1>
@@ -53,7 +53,7 @@ export function AdminDashboard({ complaints, onNavigate }: AdminDashboardProps) 
         <div>
           <button
             onClick={() => onNavigate('admin-complaints')}
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-xl shadow transition text-sm"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl shadow transition text-sm"
           >
             Manage All Complaints ({total})
           </button>
@@ -67,7 +67,7 @@ export function AdminDashboard({ complaints, onNavigate }: AdminDashboardProps) 
           <div className="text-2xl font-extrabold text-slate-900">{total}</div>
         </div>
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
-          <span className="text-xs font-semibold text-red-600 uppercase tracking-wider">New</span>
+          <span className="text-xs font-semibold text-blue-600 uppercase tracking-wider">New</span>
           <div className="text-2xl font-extrabold text-slate-900">{newCount}</div>
         </div>
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
@@ -139,7 +139,7 @@ export function AdminDashboard({ complaints, onNavigate }: AdminDashboardProps) 
           </h3>
           <button
             onClick={() => onNavigate('admin-complaints')}
-            className="text-xs font-semibold text-red-600 hover:underline"
+            className="text-xs font-semibold text-blue-600 hover:underline"
           >
             Manage All
           </button>
@@ -164,7 +164,7 @@ export function AdminDashboard({ complaints, onNavigate }: AdminDashboardProps) 
               <tbody className="divide-y divide-slate-200">
                 {highPriority.map(c => (
                   <tr key={c.id} className="hover:bg-slate-50">
-                    <td className="px-4 py-3 font-mono font-bold text-red-600">{c.id}</td>
+                    <td className="px-4 py-3 font-mono font-bold text-blue-600">{c.id}</td>
                     <td className="px-4 py-3 font-medium text-slate-900">{c.studentName} ({c.studentRoll})</td>
                     <td className="px-4 py-3 text-slate-700">{c.category}</td>
                     <td className="px-4 py-3 text-slate-600">{c.location} ({c.specificLocation})</td>
@@ -177,7 +177,7 @@ export function AdminDashboard({ complaints, onNavigate }: AdminDashboardProps) 
                     <td className="px-4 py-3 text-right">
                       <button
                         onClick={() => onNavigate('admin-complaints')}
-                        className="text-xs font-semibold bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition"
+                        className="text-xs font-semibold bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700 transition"
                       >
                         Review
                       </button>

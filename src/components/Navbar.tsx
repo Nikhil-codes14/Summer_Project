@@ -32,13 +32,13 @@ export function Navbar({
         <div className="flex justify-between items-center h-16">
           {/* Logo & Title */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => onNavigate(role ? 'dashboard' : 'landing')}>
-            <div className="bg-red-600 p-2 rounded-lg text-white font-bold text-xl flex items-center justify-center shadow">
+            <div className="bg-blue-600 p-2 rounded-lg text-white font-bold text-xl flex items-center justify-center shadow">
               <ShieldAlert className="w-6 h-6" />
             </div>
             <div>
               <div className="font-bold text-lg tracking-wide flex items-center gap-2">
                 <span>SAMS</span>
-                <span className="text-xs bg-red-500/30 text-red-300 px-2 py-0.5 rounded border border-red-400/30 font-normal">Ambalika Institute</span>
+                <span className="text-xs bg-blue-500/30 text-blue-300 px-2 py-0.5 rounded border border-blue-400/30 font-normal">Ambalika Institute</span>
               </div>
               <div className="text-xs text-slate-400 hidden sm:block">Smart Ambalika Management System</div>
             </div>
@@ -50,31 +50,31 @@ export function Navbar({
               <>
                 <button
                   onClick={() => onNavigate('dashboard')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'dashboard' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'dashboard' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   Dashboard
                 </button>
                 <button
                   onClick={() => onNavigate('submit')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'submit' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'submit' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   Submit Complaint
                 </button>
                 <button
                   onClick={() => onNavigate('my-complaints')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'my-complaints' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'my-complaints' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   My Complaints
                 </button>
                 <button
                   onClick={() => onNavigate('track')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'track' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'track' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   Track Status
                 </button>
                 <button
                   onClick={() => onNavigate('profile')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'profile' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'profile' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   Profile
                 </button>
@@ -85,19 +85,19 @@ export function Navbar({
               <>
                 <button
                   onClick={() => onNavigate('admin-dashboard')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'admin-dashboard' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'admin-dashboard' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   Admin Dashboard
                 </button>
                 <button
                   onClick={() => onNavigate('admin-complaints')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'admin-complaints' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'admin-complaints' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   Manage Complaints
                 </button>
                 <button
                   onClick={() => onNavigate('admin-resolvers')}
-                  className={`text-sm font-medium transition hover:text-red-400 ${currentView === 'admin-resolvers' ? 'text-red-400 border-b-2 border-red-400 pb-1' : 'text-slate-300'}`}
+                  className={`text-sm font-medium transition hover:text-blue-400 ${currentView === 'admin-resolvers' ? 'text-blue-400 border-b-2 border-blue-400 pb-1' : 'text-slate-300'}`}
                 >
                   Technicians Staff
                 </button>
@@ -118,7 +118,7 @@ export function Navbar({
                 >
                   <Bell className="w-5 h-5" />
                   {unreadCount > 0 && (
-                    <span className="absolute top-1 right-1 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center animate-pulse">
+                    <span className="absolute top-1 right-1 bg-blue-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center animate-pulse">
                       {unreadCount}
                     </span>
                   )}
@@ -129,7 +129,7 @@ export function Navbar({
                   <div className="absolute right-0 mt-2 w-80 bg-white text-slate-800 rounded-xl shadow-2xl border border-slate-200 py-2 z-50">
                     <div className="px-4 py-2 border-b border-slate-100 flex justify-between items-center">
                       <h3 className="font-semibold text-sm text-slate-900">Notifications</h3>
-                      <span className="text-xs bg-red-100 text-red-700 font-medium px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-blue-100 text-blue-800 font-medium px-2 py-0.5 rounded-full">
                         {unreadCount} unread
                       </span>
                     </div>
@@ -141,7 +141,7 @@ export function Navbar({
                           <div
                             key={n.id}
                             onClick={() => onMarkNotificationRead(n.id)}
-                            className={`p-3 text-xs hover:bg-slate-50 cursor-pointer transition ${!n.read ? 'bg-red-50/60 font-medium' : ''}`}
+                            className={`p-3 text-xs hover:bg-slate-50 cursor-pointer transition ${!n.read ? 'bg-blue-50/60 font-medium' : ''}`}
                           >
                             <div className="flex justify-between items-start mb-1">
                               <span className="font-semibold text-slate-900">{n.title}</span>
@@ -161,11 +161,11 @@ export function Navbar({
               <div className="hidden sm:flex items-center space-x-3 border-l border-slate-700 pl-4">
                 <div className="text-right">
                   <div className="text-sm font-semibold text-white">{user.fullName || user.name}</div>
-                  <div className="text-xs text-red-400 uppercase tracking-wider font-semibold">{role}</div>
+                  <div className="text-xs text-blue-400 uppercase tracking-wider font-semibold">{role}</div>
                 </div>
                 <button
                   onClick={onLogout}
-                  className="p-2 text-slate-400 hover:text-red-400 transition rounded-lg hover:bg-slate-800"
+                  className="p-2 text-slate-400 hover:text-blue-400 transition rounded-lg hover:bg-slate-800"
                   title="Logout"
                 >
                   <LogOut className="w-5 h-5" />
@@ -175,7 +175,7 @@ export function Navbar({
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => onNavigate('login')}
-                  className="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow"
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow"
                 >
                   Student Portal
                 </button>

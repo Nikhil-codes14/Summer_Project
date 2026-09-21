@@ -19,9 +19,9 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-red-900 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div className="bg-gradient-to-r from-blue-900 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 bg-red-500/30 text-red-300 text-xs px-3 py-1 rounded-full font-semibold">
+          <div className="inline-flex items-center gap-2 bg-blue-500/30 text-blue-300 text-xs px-3 py-1 rounded-full font-semibold border border-blue-400/30">
             Student Dashboard • {user.course || 'BCA'} ({user.year || '2nd Year'})
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold">Welcome back, {user.fullName || user.name}!</h1>
@@ -32,7 +32,7 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
         <div className="flex gap-3">
           <button
             onClick={() => onNavigate('submit')}
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-xl shadow transition flex items-center gap-2 text-sm"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-xl shadow transition flex items-center gap-2 text-sm"
           >
             <PlusCircle className="w-4 h-4" /> Submit New Complaint
           </button>
@@ -46,7 +46,7 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Complaints</span>
             <div className="text-3xl font-bold text-slate-900">{total}</div>
           </div>
-          <div className="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold">
+          <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold">
             <FileText className="w-6 h-6" />
           </div>
         </div>
@@ -91,7 +91,7 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
           </div>
           <button
             onClick={() => onNavigate('my-complaints')}
-            className="text-xs font-semibold text-red-600 hover:text-red-800 flex items-center gap-1"
+            className="text-xs font-semibold text-blue-600 hover:text-blue-800 flex items-center gap-1"
           >
             View All ({total}) <ArrowRight className="w-3.5 h-3.5" />
           </button>
@@ -102,7 +102,7 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
             <p className="text-sm">You haven't submitted any complaints yet.</p>
             <button
               onClick={() => onNavigate('submit')}
-              className="bg-red-600 text-white px-4 py-2 rounded-xl text-xs font-semibold inline-flex items-center gap-2"
+              className="bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-semibold inline-flex items-center gap-2"
             >
               <PlusCircle className="w-4 h-4" /> Submit First Complaint
             </button>
@@ -123,7 +123,7 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
               <tbody className="divide-y divide-slate-200">
                 {studentComplaints.slice(0, 5).map(c => (
                   <tr key={c.id} className="hover:bg-slate-50 transition">
-                    <td className="px-4 py-3 font-mono font-bold text-red-600">{c.id}</td>
+                    <td className="px-4 py-3 font-mono font-bold text-blue-600">{c.id}</td>
                     <td className="px-4 py-3 font-medium text-slate-900">{c.category}</td>
                     <td className="px-4 py-3 text-slate-600 flex items-center gap-1">
                       <MapPin className="w-3.5 h-3.5 text-slate-400" /> {c.location} ({c.specificLocation})
@@ -132,7 +132,7 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
                       <span className={`inline-flex px-2.5 py-0.5 rounded-full text-xs font-semibold ${
                         c.priority === 'Emergency' ? 'bg-red-100 text-red-800' :
                         c.priority === 'High' ? 'bg-amber-100 text-amber-800' :
-                        c.priority === 'Medium' ? 'bg-red-100 text-red-800' :
+                        c.priority === 'Medium' ? 'bg-blue-100 text-blue-800' :
                         'bg-slate-100 text-slate-700'
                       }`}>
                         {c.priority}
@@ -152,7 +152,7 @@ export function StudentDashboard({ user, complaints, onNavigate }: StudentDashbo
                     <td className="px-4 py-3 text-right">
                       <button
                         onClick={() => onNavigate('my-complaints')}
-                        className="text-xs font-semibold text-red-600 hover:underline"
+                        className="text-xs font-semibold text-blue-600 hover:underline"
                       >
                         View Details
                       </button>

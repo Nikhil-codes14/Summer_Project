@@ -63,17 +63,17 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
       <div className="mb-6 flex justify-between items-center">
         <button
           onClick={() => onNavigate('dashboard')}
-          className="text-xs text-red-600 font-semibold hover:underline flex items-center gap-1"
+          className="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Dashboard
         </button>
-        <span className="text-xs bg-red-100 text-red-800 font-semibold px-3 py-1 rounded-full">
+        <span className="text-xs bg-blue-100 text-blue-800 font-semibold px-3 py-1 rounded-full">
           SAMS Complaint Portal
         </span>
       </div>
 
       <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-red-900 to-slate-900 text-white p-6 sm:p-8">
+        <div className="bg-gradient-to-r from-blue-900 to-slate-900 text-white p-6 sm:p-8">
           <h1 className="text-2xl font-extrabold">Report Campus Problem</h1>
           <p className="text-xs text-slate-300 mt-1">
             Submit infrastructure, electrical, cleanliness, or Wi-Fi issues for immediate administrative tracking.
@@ -90,14 +90,14 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
               <p className="text-sm text-slate-600">
                 Your unique Complaint ID has been generated and assigned to the administration queue.
               </p>
-              <div className="inline-block bg-red-50 border border-red-200 px-4 py-2 rounded-xl font-mono text-lg font-bold text-red-700">
+              <div className="inline-block bg-blue-50 border border-blue-200 px-4 py-2 rounded-xl font-mono text-lg font-bold text-blue-700">
                 {successId}
               </div>
             </div>
             <div className="flex justify-center gap-4 pt-4">
               <button
                 onClick={() => onNavigate('my-complaints')}
-                className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition shadow"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition shadow"
               >
                 View in My Complaints
               </button>
@@ -123,7 +123,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
                 <select
                   value={category}
                   onChange={e => setCategory(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 >
                   {COMPLAINT_CATEGORIES.map(cat => (
                     <option key={cat} value={cat}>{cat}</option>
@@ -136,7 +136,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
                 <select
                   value={location}
                   onChange={e => setLocation(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 >
                   {CAMPUS_LOCATIONS.map(loc => (
                     <option key={loc} value={loc}>{loc}</option>
@@ -154,7 +154,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
                   placeholder="e.g. Room 204, Lab 3, First Floor"
                   value={specificLocation}
                   onChange={e => setSpecificLocation(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
 
@@ -163,7 +163,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
                 <select
                   value={priority}
                   onChange={e => setPriority(e.target.value as any)}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 >
                   <option value="Low">Low Priority</option>
                   <option value="Medium">Medium Priority</option>
@@ -180,7 +180,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
                 placeholder="e.g. Water tap broken in washroom / Wi-Fi router not working"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
 
@@ -192,7 +192,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
                 placeholder="Describe the problem in detail (e.g. electricity wire is sparking or water pipe is leaking heavily)..."
                 value={description}
                 onChange={e => setDescription(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl p-4 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl p-4 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
               ></textarea>
             </div>
 
@@ -203,7 +203,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
                 placeholder="https://images.unsplash.com/... (optional)"
                 value={image}
                 onChange={e => setImage(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
 
@@ -218,7 +218,7 @@ export function SubmitComplaintForm({ user, onComplaintSubmitted, onNavigate }: 
               <button
                 type="submit"
                 disabled={submitting}
-                className="px-8 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-semibold shadow transition flex items-center gap-2"
+                className="px-8 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow transition flex items-center gap-2"
               >
                 <Send className="w-4 h-4" /> {submitting ? 'Submitting...' : 'Submit Complaint'}
               </button>

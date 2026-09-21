@@ -51,7 +51,7 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
     <div className="min-h-screen bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 text-white">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <div className="bg-red-600 text-white p-3.5 rounded-2xl shadow-xl border border-red-500/30">
+          <div className="bg-blue-600 text-white p-3.5 rounded-2xl shadow-xl border border-blue-500/30">
             <KeyRound className="w-8 h-8" />
           </div>
         </div>
@@ -74,7 +74,7 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
             </button>
             <button
               onClick={onSwitchToStudent}
-              className="text-xs text-red-400 hover:underline font-medium"
+              className="text-xs text-blue-400 hover:underline font-medium"
             >
               Go to Student Portal →
             </button>
@@ -93,7 +93,7 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
                 type="button"
                 onClick={() => handleSelectRole('dean')}
                 className={`py-2.5 px-2 rounded-xl text-xs font-bold transition flex flex-col items-center justify-center gap-1 border ${
-                  selectedRole === 'dean' ? 'bg-red-600 text-white border-red-500 shadow-md' : 'bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-800'
+                  selectedRole === 'dean' ? 'bg-blue-600 text-white border-blue-500 shadow-md' : 'bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-800'
                 }`}
               >
                 <span>🏛️ Dean</span>
@@ -103,7 +103,7 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
                 type="button"
                 onClick={() => handleSelectRole('director')}
                 className={`py-2.5 px-2 rounded-xl text-xs font-bold transition flex flex-col items-center justify-center gap-1 border ${
-                  selectedRole === 'director' ? 'bg-red-600 text-white border-red-500 shadow-md' : 'bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-800'
+                  selectedRole === 'director' ? 'bg-blue-600 text-white border-blue-500 shadow-md' : 'bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-800'
                 }`}
               >
                 <span>👔 Director</span>
@@ -113,7 +113,7 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
                 type="button"
                 onClick={() => handleSelectRole('admin')}
                 className={`py-2.5 px-2 rounded-xl text-xs font-bold transition flex flex-col items-center justify-center gap-1 border ${
-                  selectedRole === 'admin' ? 'bg-red-600 text-white border-red-500 shadow-md' : 'bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-800'
+                  selectedRole === 'admin' ? 'bg-blue-600 text-white border-blue-500 shadow-md' : 'bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-800'
                 }`}
               >
                 <span>⚙️ HOD / Admin</span>
@@ -134,7 +134,7 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
                   required
                   value={adminEmail}
                   onChange={e => setAdminEmail(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  className="block w-full pl-10 pr-3 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="admin@ambalika.ac.in"
                 />
               </div>
@@ -151,25 +151,25 @@ export function AdminLoginModal({ onLoginSuccess, onBackToLanding, onSwitchToStu
                   required
                   value={adminPassword}
                   onChange={e => setAdminPassword(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  className="block w-full pl-10 pr-3 py-3 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="••••••••"
                 />
               </div>
             </div>
 
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
-              <p className="font-semibold text-red-400">Authorized Executive Accounts:</p>
+              <p className="font-semibold text-blue-400">Authorized Executive Accounts:</p>
               <div className="space-y-1 text-slate-300">
-                <p>🏛️ <strong>Dean:</strong> <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-red-300">dean@ambalika.ac.in</code> / <code className="bg-slate-900 px-1 py-0.5 rounded font-mono">dean123</code></p>
-                <p>👔 <strong>Director:</strong> <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-red-300">director@ambalika.ac.in</code> / <code className="bg-slate-900 px-1 py-0.5 rounded font-mono">director123</code></p>
-                <p>⚙️ <strong>Admin/HOD:</strong> <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-red-300">admin@ambalika.ac.in</code> / <code className="bg-slate-900 px-1 py-0.5 rounded font-mono">admin123</code></p>
+                <p>🏛️ <strong>Dean:</strong> <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-blue-300">dean@ambalika.ac.in</code> / <code className="bg-slate-900 px-1 py-0.5 rounded font-mono">dean123</code></p>
+                <p>👔 <strong>Director:</strong> <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-blue-300">director@ambalika.ac.in</code> / <code className="bg-slate-900 px-1 py-0.5 rounded font-mono">director123</code></p>
+                <p>⚙️ <strong>Admin/HOD:</strong> <code className="bg-slate-900 px-1 py-0.5 rounded font-mono text-blue-300">admin@ambalika.ac.in</code> / <code className="bg-slate-900 px-1 py-0.5 rounded font-mono">admin123</code></p>
               </div>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3.5 rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2"
             >
               <ShieldAlert className="w-4 h-4" /> {loading ? 'Authenticating...' : selectedRole === 'dean' ? '🏛️ Login as College Dean' : selectedRole === 'director' ? '👔 Login as Additional Director' : '⚙️ Login as Estate HOD / Admin'}
             </button>

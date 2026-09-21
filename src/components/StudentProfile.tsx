@@ -46,18 +46,18 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
       <div className="flex justify-between items-center">
         <button
           onClick={() => onNavigate('dashboard')}
-          className="text-xs text-red-600 font-semibold hover:underline flex items-center gap-1"
+          className="text-xs text-blue-600 font-semibold hover:underline flex items-center gap-1"
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Dashboard
         </button>
-        <span className="text-xs bg-red-100 text-red-800 font-semibold px-3 py-1 rounded-full">
+        <span className="text-xs bg-blue-100 text-blue-800 font-semibold px-3 py-1 rounded-full">
           Student Profile Management
         </span>
       </div>
 
       <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-red-900 to-slate-900 text-white p-6 sm:p-8 flex items-center space-x-4">
-          <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center font-bold text-2xl shadow">
+        <div className="bg-gradient-to-r from-blue-900 to-slate-900 text-white p-6 sm:p-8 flex items-center space-x-4">
+          <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center font-bold text-2xl shadow">
             {(fullName || 'S')[0]}
           </div>
           <div>
@@ -87,7 +87,7 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
                 required
                 value={fullName}
                 onChange={e => setFullName(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
             <div>
@@ -118,7 +118,7 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
                 required
                 value={course}
                 onChange={e => setCourse(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
           </div>
@@ -131,7 +131,7 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
                 required
                 value={department}
                 onChange={e => setDepartment(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
             <div>
@@ -139,7 +139,7 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
               <select
                 value={year}
                 onChange={e => setYear(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none bg-white"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
               >
                 <option>1st Year</option>
                 <option>2nd Year</option>
@@ -152,7 +152,7 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
               <select
                 value={semester}
                 onChange={e => setSemester(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 focus:outline-none bg-white"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
               >
                 <option>1st Semester</option>
                 <option>2nd Semester</option>
@@ -170,7 +170,7 @@ export function StudentProfile({ user, onUpdateUser, onNavigate }: StudentProfil
             <button
               type="submit"
               disabled={saving}
-              className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-2.5 rounded-xl text-sm shadow transition"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-2.5 rounded-xl text-sm shadow transition"
             >
               {saving ? 'Saving...' : 'Save Profile Changes'}
             </button>
